@@ -5,7 +5,6 @@ import CreatePage from "./components/CreatePage/CreatePage.vue";
 import Modal from "./components/Modal/Modal.vue";
 import houses from "./api/api.json";
 
-
 export default {
   components: {
     CardItem,
@@ -24,6 +23,10 @@ export default {
       data: houses,
       isModalOpen: false,
       itemOnDelete: null,
+      requireHomeActive: new URL('@/assets/icons/ic_mobile_navigarion_home_active@3x.png', import.meta.url).href,
+      requireHome: new URL('@/assets/icons/ic_mobile_navigarion_home@3x.png', import.meta.url).href,
+      requireInfoActive: new URL('@/assets/icons/ic_mobile_navigarion_info_active@3x.png', import.meta.url).href,
+      requireInfo: new URL('@/assets/icons/ic_mobile_navigarion_info@3x.png', import.meta.url).href
     };
   },
   methods: {
@@ -38,6 +41,10 @@ export default {
     openCardPage(item) {
       this.selectedCard = item;
       this.isCreating = false;
+      document.documentElement.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
     },
     closeCardPage() {
       this.selectedCard = null;
@@ -60,11 +67,11 @@ export default {
     deletePost() {
       this.data = this.data.filter((item) => item.id !== this.itemOnDelete.id);
       this.closeModalDelete();
-      this.setPage('home');
+      this.setPage("home");
     },
     addPost(item) {
       this.data.push(item);
-    }
+    },
   },
   computed: {
     sortedItems() {
@@ -210,25 +217,21 @@ export default {
 
   <footer>
     <div class="home-icon" v-on:click="setPage('home')">
-      <img
-        v-bind:src="
-          page === 'home'
-            ? './src/assets/icons/ic_mobile_navigarion_home_active@3x.png'
-            : './src/assets/icons/ic_mobile_navigarion_home@3x.png'
-        "
-        alt="home-icon"
-      />
-    </div>
-    <div class="about-icon" v-on:click="setPage('info')">
-      <img
-        v-bind:src="
-          page === 'info'
-            ? './src/assets/icons/ic_mobile_navigarion_info_active@3x.png'
-            : './src/assets/icons/ic_mobile_navigarion_info@3x.png'
-        "
-        alt="info-icon"
-      />
-    </div>
+    <img
+      v-bind:src="page === 'home'
+        ? requireHomeActive
+        : requireHome"
+    />
+  </div>
+
+  <div class="about-icon" v-on:click="setPage('info')">
+    <img
+      v-bind:src="page === 'info'
+        ? requireInfoActive
+        : requireInfo"
+      alt="info-icon"
+    />
+  </div>
   </footer>
 </template>
 

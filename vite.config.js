@@ -17,5 +17,5 @@ export default defineConfig({
       '@': fileURLToPath(new URL('./src', import.meta.url))
     },
   },
-  base: '/estate-website/', 
+  base: process.env.NODE_ENV === 'production' ? '/estate-website/' : '/',
 })
