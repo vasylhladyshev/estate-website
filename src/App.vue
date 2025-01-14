@@ -213,8 +213,8 @@ export default {
       <img
         v-bind:src="
           page === 'home'
-            ? '/src/assets/icons/ic_mobile_navigarion_home_active@3x.png'
-            : '/src/assets/icons/ic_mobile_navigarion_home@3x.png'
+            ? './src/assets/icons/ic_mobile_navigarion_home_active@3x.png'
+            : './src/assets/icons/ic_mobile_navigarion_home@3x.png'
         "
         alt="home-icon"
       />
@@ -223,8 +223,8 @@ export default {
       <img
         v-bind:src="
           page === 'info'
-            ? '/src/assets/icons/ic_mobile_navigarion_info_active@3x.png'
-            : '/src/assets/icons/ic_mobile_navigarion_info@3x.png'
+            ? './src/assets/icons/ic_mobile_navigarion_info_active@3x.png'
+            : './src/assets/icons/ic_mobile_navigarion_info@3x.png'
         "
         alt="info-icon"
       />
