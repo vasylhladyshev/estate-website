@@ -216,8 +216,7 @@ export default {
 }
 
 .page-description {
-  min-width: 650px;
-  max-width: 650px;
+  width: 100%;
 }
 
 .back-btn {
@@ -314,6 +313,7 @@ export default {
   background-color: #f6f6f6;
   padding: 20px;
   width: 100%;
+  box-sizing: border-box;
 }
 
 .recommendations-title {
@@ -379,6 +379,11 @@ export default {
 
   .btn-icon-mobile {
     display: none;
+  }
+
+  .page-description {
+    min-width: 650px;
+    max-width: 650px;
   }
 
   .edit-btn-desktop {
